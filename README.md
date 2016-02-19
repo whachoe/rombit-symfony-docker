@@ -1,2 +1,8 @@
 # rombit-symfony-docker
-Base container for our symfony-images
+Base containers for our symfony-setup
+
+## fpm
+Our php5-fpm container
+
+## nginx
+The nginx container
