@@ -3,7 +3,7 @@ MAINTAINER Jo Giraerts <jo@rombit.be>
 RUN apt-get update && apt-get install -y \
         libfreetype6-dev libjpeg62-turbo-dev \
         libmcrypt-dev libpng12-dev \
-	curl git libpng12-dev zlib1g-dev libicu-dev \
+	curl git libpng12-dev zlib1g-dev libicu-dev ruby \
 	fontconfig libfontconfig1 libxrender1 xfonts-base xfonts-75dpi
 RUN docker-php-ext-install gd mbstring pdo_mysql zip intl
 COPY dist/php5-extra.ini /usr/local/etc/php/conf.d/php5-extra.ini
@@ -20,6 +20,9 @@ RUN composer global require "phpunit/phpunit=5.2.*"
 
 # Install phpcs
 RUN composer global require "squizlabs/php_codesniffer=*"
+
+# Install capifony
+RUN gem install capifony
 
 # Set the path
 ENV PATH $PATH:~/.composer/vendor/bin

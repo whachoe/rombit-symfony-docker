@@ -1,6 +1,6 @@
 # rombit-symfony-docker
-Base containers for our symfony-setup
-
+Base containers for our development CI in Rombit.       
+Use `./build.sh` to build the containers and upload them to [Dockerhub](hub.docker.com)
 
 
 ## Containers
