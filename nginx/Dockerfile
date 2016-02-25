@@ -1,4 +1,4 @@
-FROM nginx
+FROM nginx:1.9.11
 COPY mysite.template /etc/nginx/conf.d/mysite.template
 ENV NGINX_HOST localhost
 ENV NGINX_PORT 80

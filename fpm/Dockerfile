@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -y \
 	curl git libpng12-dev zlib1g-dev libicu-dev \
 	fontconfig libfontconfig1 libxrender1 xfonts-base xfonts-75dpi
 RUN docker-php-ext-install gd mbstring pdo_mysql zip intl
-COPY dist/php5-extra.ini /usr/local/etc/php-fpm.d/
+COPY dist/php5-extra.ini /usr/local/etc/php/conf.d/php5-extra.ini
 
 # We need wkhtmltopdf
 COPY wkhtmltox-0.12.2_linux-jessie-amd64.deb /root
@@ -18,6 +18,10 @@ RUN curl -o /usr/local/bin/composer https://getcomposer.org/composer.phar && chm
 # Install phpunit
 RUN composer global require "phpunit/phpunit=5.2.*"
 
+# Install phpcs
+RUN composer global require "squizlabs/php_codesniffer=*"
 
+# Set the path
+ENV PATH $PATH:~/.composer/vendor/bin
 
 
